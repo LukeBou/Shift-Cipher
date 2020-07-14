@@ -1,0 +1,54 @@
+Nombre: Lucas Jimenez Bou
+Modalidad: Propuesta 2
+
+Informe Python 3: Trabajo Final
+
+La propuesta elegida se refiere a la técnica de cifrado sustituyendo cada letra de un mensaje por otra que se encuentre un número fijo de desitancia en el alfabeto.
+
+•Primer paso: Leer archivo cifrado
+
+Usamos la opcion "open()" para leer el archivo "fichero_cifrado.txt" que contiene el cifrado y lo almacenamos como una variable con la que estaremos trabajando.
+
+•Segundo paso: cifrar
+
+Después creamos una función "cifrando()" que accepta el texto cifrado. Este se encuentra en blocs de 5 letras separados por un espacio, así que eliminamos los espacios y trabajamos carácter por carácter.
+Para cada carácter, descubrimos su codigo ASCII con la funcion "ord()" y creamos una nueva carácter que está a "i" unidades de distancia de la original. Es importante recordar que la carácter "A" y "Z" tienen index 65 y 90 respectivamente, así que restamos 65 seguido del restante de la division entre 26 para cair dentro del rango del alfabeto (26). Al final sumamos 65 y tenemos el codigo ASCII de la nueva caractér:
+
+carácter_cifrado = ((carácter_original -65 + i) % 26) + 65
+     
+Creamos la funcion "claves_y_descifrados()" para ejecutar la funcion "cifrando()" del fichero cifrado en 26 distintas versiones, as decir, obteniendo 26 claves de desplazamiento del alfabeto.
+
+Almacenamos todas las 26 claves y sus respectivos codigos en una sola variable (fichero_plano)
+
+•Tercer paso: Leer y formatar diccionario castellano
+
+Usamos la funcion "open()" para leer el archivo "Diccionario.txt" que contiene el palabras del vocabulario castellano y lo almacenamos como una variable.
+
+Creamos la función "clave_detect()". Nuestro objectivo es ejecutar cada uno de nuestros cifrados y comparar a palabras pertenecientes al vocabulário castellano. La clave que contiene la mayor cantidad de palabras coincidentes tendra mayor probabilidad en poseer el texto en claro.
+
+Antes de hacer las comparaciones es necesario formatear las palabras del vocabulario castellano. Primeramente, seleccionamos palabras que tengan más de 3 carácteres para reducir la posibilidad de falsos positivos. En seguida convertimos todas las carácteres en mayúsculas y eliminamos las tildes y diéresis.
+
+•Cuarto paso: Reconocer palabras en cifrados
+
+A continuación, pasamos la funcion "clave_detect()" por cada clave buscando por palabras dentro de los nuevos parámetros de formato. Utilizamos la funcion "count()" para detectar cuantas veces ocurre la palabra del vocabulário dentro del cifrado. La funcion devuelve la clave que tenga más coincidencias.
+
+•Quinto paso: Grabar resultado
+Por fin, grabamos el resultado en un archivo de texto "fichero_plano.txt" con todas las 26 claves junto con la clave que contiene el posible texto en claro.
+
+
+Resultado:
+El texto en claro se encuentra en la clave 13!
+"ALICIA EMPEZABA YA A CANSARSE DE ESTAR SENTADA CON SU HERMANA ALAORILLADELRIOSINTENERNADAQUEHACERHABIAECHADOUNPARDEOJEADASALLIBROQUESUHERMANAESTABALEYENDOPERONOTENIADIBUJOSNIDIALOGOSYDEQUESIRVEUNLIBROSINDIBUJOSNIDIALOGOSSEPREGUNTABAALICIA"
+
+
+
+
+
+
+
+
+
+
+
+
+
