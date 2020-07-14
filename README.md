@@ -1,4 +1,4 @@
-#Shift-Cipher
+# Shift-Cipher
 
 UNED Python Course final project 
 This program uses keys that shift locations of ascii characters in a coded text.
